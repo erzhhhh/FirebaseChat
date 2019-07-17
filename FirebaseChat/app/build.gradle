@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
+
+repositories {
+    mavenLocal()
+    flatDir {
+        dirs 'libs'
+    }
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
+
+    defaultConfig {
+        applicationId "com.google.firebase.udacity.friendlychat"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.google.firebase:firebase-core:17.0.1'
+    compile 'com.google.firebase:firebase-database:18.0.0'
+    compile 'com.google.firebase:firebase-storage:18.1.0'
+    compile 'com.google.firebase:firebase-messaging:19.0.1'
+    compile 'com.google.firebase:firebase-config:18.0.0'
+    compile 'com.firebaseui:firebase-ui-auth:5.0.0'
+
+    compile 'com.google.android.material:material:1.0.0'
+    compile 'androidx.appcompat:appcompat:1.0.2'
+
+    // Displaying images
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
