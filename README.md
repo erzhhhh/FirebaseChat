@@ -1,4 +1,4 @@
-# firebaseChat
+# FirebaseChat
 
 This app is using Firebase sevices such as 
 Firebase Realtime Database, 
